@@ -2,7 +2,6 @@ from django.db import models
 from django.core.validators import MinValueValidator
 
 
-
 JOB_TYPES = (
     ("Full Time", "Full Time"),
     ("Part Time", "Part Time"),
@@ -25,6 +24,8 @@ class Job(models.Model):
     roles_and_responsibilities = models.TextField()
     skills = models.TextField()
     true_job_link = models.TextField()
+    image = models.FileField(null=True, blank=True, upload_to="")
+    date_posted = models.DateTimeField(auto_now_add=True, editable=False)
 
     class Meta:
         verbose_name = 'Job'
